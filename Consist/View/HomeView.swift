@@ -96,6 +96,64 @@ struct HomeView: View {
             .padding(.horizontal, -16)
             .tabViewStyle(.page(indexDisplayMode: .never))
             .frame(height: 90)
+            
+            // Week Navigation Controls
+            HStack(spacing: 20) {
+                Button(action: {
+                    withAnimation(.snappy) {
+                        if currentWeekIndex > 0 {
+                            currentWeekIndex -= 1
+                        }
+                    }
+                }) {
+                    Image(systemName: "chevron.left")
+                        .font(.title3)
+                        .foregroundStyle(.gray)
+                }
+                Spacer()
+                Button(action: {
+                    withAnimation(.snappy) {
+                        currentDate = Date()
+                        // Reset weekSlider with today's week in the middle
+                        let currentWeek = Date().fetchWeek()
+                        weekSlider.removeAll()
+                        
+                        // Add previous week
+                        if let firstDate = currentWeek.first?.date {
+                            weekSlider.append(firstDate.createPreviousWeek())
+                        }
+                        
+                        // Add current week
+                        weekSlider.append(currentWeek)
+                        
+                        // Add next week
+                        if let lastDate = currentWeek.last?.date {
+                            weekSlider.append(lastDate.createNextWeek())
+                        }
+                        
+                        // Set index to middle (current week)
+                        currentWeekIndex = 1
+                    }
+                }) {
+                    Text("Today")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                        
+                }
+                .disabled(currentDate.isToday)
+                Spacer()
+                Button(action: {
+                    withAnimation(.snappy) {
+                        if currentWeekIndex < weekSlider.count - 1 {
+                            currentWeekIndex += 1
+                        }
+                    }
+                }) {
+                    Image(systemName: "chevron.right")
+                        .font(.title3)
+                        .foregroundStyle(.gray)
+                }
+            }
                     
         }
         .padding(16)
