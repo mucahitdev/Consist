@@ -18,6 +18,19 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HeaderView()
+            
+            ScrollView() {
+                VStack {
+                    Text("Today")
+                        .font(.title3.bold())
+                        .foregroundStyle(.darkBlue)
+                    Text("Today")
+                        .font(.title3.bold())
+                        .foregroundStyle(.darkBlue)
+                }
+                .hSpacing(.center)
+                .vSpacing(.center)
+            }
         }
         .vSpacing(.top)
         .onAppear(perform: {
@@ -116,24 +129,24 @@ struct HomeView: View {
                         )
                         .frame(width: 35, height: 35)
                         .background(
-content: {
-                            if isSameDate(day.date, currentDate) {
-                                Circle()
-                                    .fill(.darkBlue)
-                                    .matchedGeometryEffect(
-                                        id: "TABINDICATOR",
-                                        in: animation
-                                    )
-                            }
+                            content: {
+                                if isSameDate(day.date, currentDate) {
+                                    Circle()
+                                        .fill(.darkBlue)
+                                        .matchedGeometryEffect(
+                                            id: "TABINDICATOR",
+                                            in: animation
+                                        )
+                                }
                             
-    if day.date.isToday {
-        Circle()
-            .fill(.cyan)
-            .frame(width: 5, height: 5)
-            .vSpacing(.bottom)
-            .offset(y: 10)
-    }
-})
+                                if day.date.isToday {
+                                    Circle()
+                                        .fill(.cyan)
+                                        .frame(width: 5, height: 5)
+                                        .vSpacing(.bottom)
+                                        .offset(y: 10)
+                                }
+                            })
                         .background(
                             .white.shadow(.drop(radius: 1)),
                             in: .circle
