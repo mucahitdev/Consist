@@ -73,11 +73,20 @@ struct NewTaskView: View {
                             }
                         }
                     }
-                    
-                    
                 }
-                
             }
+            Button(action: {}, label: {
+                Text("Add Task")
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical,8)
+                    .background(taskColor)
+                    .foregroundStyle(.white)
+                    .cornerRadius(12)
+                    .buttonStyle(.plain)
+            })
+           
+            
         }
         .padding(16)
         .background(.BG)
