@@ -7,20 +7,21 @@
 
 import SwiftUI
 
-struct Task {
+struct Task:Identifiable {
     var id:UUID = .init()
     var title: String
     var creationDate: Date = .init()
     var completed = false
     var tint: Color
+    var icon: String
 }
 
 var sampleTasks: [Task] = [
-    .init(title: "Create a new project",creationDate: .updateHour(-2), tint: .taskColor1),
-    .init(title: "Drink a coffee",creationDate: .updateHour(-1), tint: .taskColor2),
-    .init(title: "Write a blog post",creationDate: .updateHour(0), tint: .taskColor3),
-    .init(title: "Go for a walk",creationDate: .updateHour(1), tint: .taskColor4),
-    .init(title: "Prepare a presentation",creationDate: .updateHour(2), tint: .taskColor5),
+    .init(title: "Create a neADAwdawdjadw adjjwajd adwa dwajdjwa djajdaw project",creationDate: .updateHour(-2), tint: .taskColor1, icon: "star.fill"),
+    .init(title: "Drink a coffee",creationDate: .updateHour(-1), tint: .taskColor2, icon: "star.fill"),
+    .init(title: "Write a blog post",creationDate: .updateHour(0),completed:true, tint: .taskColor3, icon: "star.fill"),
+    .init(title: "Go for a walk",creationDate: .updateHour(1), tint: .taskColor4, icon: "star.fill"),
+    .init(title: "Prepare a presentation",creationDate: .updateHour(2), tint: .taskColor5, icon: "star.fill"),
 ]
 
 extension Date {

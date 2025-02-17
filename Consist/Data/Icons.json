@@ -1,0 +1,162 @@
+[
+    {
+        "name": "heart.fill",
+        "labels": {
+            "tr": ["kalp", "sevgi", "aşk"],
+            "en": ["heart", "love", "affection"]
+        },
+        "category": 1
+    },
+    {
+        "name": "star.fill",
+        "labels": {
+            "tr": ["yıldız", "övgü", "başarı"],
+            "en": ["star", "achievement", "award"]
+        },
+        "category": 2
+    },
+    {
+        "name": "bell.fill",
+        "labels": {
+            "tr": ["zil", "uyarı", "ses"],
+            "en": ["bell", "alert", "sound"]
+        },
+        "category": 3
+    },
+    {
+        "name": "cloud.fill",
+        "labels": {
+            "tr": ["bulut", "hava", "doğa"],
+            "en": ["cloud", "weather", "nature"]
+        },
+        "category": 4
+    },
+    {
+        "name": "bolt.fill",
+        "labels": {
+            "tr": ["şimşek", "güç", "enerji"],
+            "en": ["bolt", "lightning", "power"]
+        },
+        "category": 2
+    },
+    {
+        "name": "house.fill",
+        "labels": {
+            "tr": ["ev", "bina", "yaşam alanı"],
+            "en": ["house", "building", "home"]
+        },
+        "category": 3
+    },
+    {
+        "name": "moon.fill",
+        "labels": {
+            "tr": ["ay", "gece", "gökyüzü"],
+            "en": ["moon", "night", "sky"]
+        },
+        "category": 4
+    },
+    {
+        "name": "leaf.fill",
+        "labels": {
+            "tr": ["yaprak", "doğa", "yeşil"],
+            "en": ["leaf", "nature", "green"]
+        },
+        "category": 4
+    },
+    {
+        "name": "sun.max.fill",
+        "labels": {
+            "tr": ["güneş", "yaz", "ışık"],
+            "en": ["sun", "summer", "light"]
+        },
+        "category": 4
+    },
+    {
+        "name": "lock.fill",
+        "labels": {
+            "tr": ["kilit", "güvenlik", "koruma"],
+            "en": ["lock", "security", "protection"]
+        },
+        "category": 5
+    },
+    {
+        "name": "paperclip",
+        "labels": {
+            "tr": ["kağıt", "bağlantı", "ofis"],
+            "en": ["paperclip", "attachment", "office"]
+        },
+        "category": 8
+    },
+    {
+        "name": "person.fill",
+        "labels": {
+            "tr": ["kişi", "insan", "birey"],
+            "en": ["person", "individual", "human"]
+        },
+        "category": 9
+    },
+    {
+        "name": "magnifyingglass.circle.fill",
+        "labels": {
+            "tr": ["büyüteç", "arama", "keşif"],
+            "en": ["magnifying glass", "search", "discovery"]
+        },
+        "category": 10
+    },
+    {
+        "name": "camera.fill",
+        "labels": {
+            "tr": ["kamera", "fotoğraf", "video"],
+            "en": ["camera", "photo", "video"]
+        },
+        "category": 7
+    },
+    {
+        "name": "flag.fill",
+        "labels": {
+            "tr": ["bayrak", "ulusal", "işaret"],
+            "en": ["flag", "national", "symbol"]
+        },
+        "category": 12
+    },
+    {
+        "name": "gift.fill",
+        "labels": {
+            "tr": ["hediye", "kutlama", "doğum günü"],
+            "en": ["gift", "celebration", "birthday"]
+        },
+        "category": 11
+    },
+    {
+        "name": "airplane.circle.fill",
+        "labels": {
+            "tr": ["uçak", "seyahat", "hava yolu"],
+            "en": ["airplane", "travel", "aviation"]
+        },
+        "category": 6
+    },
+    {
+        "name": "tv.fill",
+        "labels": {
+            "tr": ["televizyon", "eğlence", "medya"],
+            "en": ["tv", "entertainment", "media"]
+        },
+        "category": 7
+    },
+    {
+        "name": "camera.macro",
+        "labels": {
+            "tr": ["makro fotoğraf", "yakın çekim", "kamera"],
+            "en": ["macro camera", "close-up", "lens"]
+        },
+        "category": 12
+    },
+    {
+        "name": "book.fill",
+        "labels": {
+            "tr": ["kitap", "okuma", "edebiyat"],
+            "en": ["book", "reading", "literature"]
+        },
+        "category": 13
+    }
+]

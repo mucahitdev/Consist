@@ -13,26 +13,37 @@ struct HomeView: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex = 1
     @State private var createWeek = false
+    @State private var tasks: [Task] = sampleTasks.sorted(
+        by: {$1.creationDate > $0.creationDate
+        })
+    @State private var createNewTask = false
 
     @Namespace private var animation
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading,spacing: 0) {
             HeaderView()
             
             ScrollView() {
                 VStack {
-                    Text("Today")
-                        .font(.title3.bold())
-                        .foregroundStyle(.darkBlue)
-                    Text("Today")
-                        .font(.title3.bold())
-                        .foregroundStyle(.darkBlue)
+                    TaskView()
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
+                .padding(.top,16)
             }
         }
         .vSpacing(.top)
+        .overlay(alignment: .bottomTrailing) {
+            Button(action: {
+                createNewTask.toggle()
+            }) {
+                Image(systemName: "plus.circle.fill")
+                    .font(.system(size: 44))
+                    .foregroundStyle(.darkBlue)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: 10, y: 10)
+            }
+            .padding(20)
+        }
         .onAppear(perform: {
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
@@ -49,6 +60,14 @@ struct HomeView: View {
                     
             }
                 
+        })
+        .sheet(isPresented: $createNewTask, content: {
+            NewTaskView()
+                .presentationDetents([.height(300)])
+               // .interactiveDismissDisabled()
+                .presentationCornerRadius(30)
+                .presentationBackground(.BG)
+                .presentationDragIndicator(.visible)
         })
     }
     
@@ -238,6 +257,16 @@ struct HomeView: View {
                     }
             }
         }
+    }
+    
+    @ViewBuilder
+    func TaskView() -> some View {
+        VStack(alignment: .leading,spacing: 16) {
+            ForEach($tasks) { $task in
+                TaskRowView(task: $task)
+            }
+        }
+        .padding([.horizontal,.bottom], 16)
     }
     
     func paginateWeek() {
