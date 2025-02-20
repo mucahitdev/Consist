@@ -17,6 +17,7 @@ struct NewTaskView: View {
     @State private var isIconPickerPresented: Bool = false
     
     let colors: [Color] = [.taskColor1,.taskColor2,.taskColor3,.taskColor4,.taskColor5]
+
     var body: some View {
         VStack(alignment: .leading,spacing: 16) {
                 VStack(alignment: .leading) {
@@ -75,18 +76,21 @@ struct NewTaskView: View {
                     }
                 }
             }
-            Button(action: {}, label: {
-                Text("Add Task")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical,8)
-                    .background(taskColor)
-                    .foregroundStyle(.white)
-                    .cornerRadius(12)
-                    .buttonStyle(.plain)
-            })
-           
             
+            Spacer()
+            
+            Button(action: {}, label: {
+                Text("Create Task")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .textScale(.secondary)
+                    .hSpacing(.center)
+                    .padding(.vertical,8)
+                    .foregroundStyle(.white)
+                    .background(taskColor,in: .rect(cornerRadius: 8))
+            })
+            .disabled(!taskName.isValidString)
+            .opacity(taskName.isValidString ? 1 : 0.5)
         }
         .padding(16)
         .background(.BG)

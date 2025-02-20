@@ -63,9 +63,9 @@ struct HomeView: View {
         })
         .sheet(isPresented: $createNewTask, content: {
             NewTaskView()
-                .presentationDetents([.height(300)])
+                .presentationDetents([.height(250)])
                // .interactiveDismissDisabled()
-                .presentationCornerRadius(30)
+                .presentationCornerRadius(8)
                 .presentationBackground(.BG)
                 .presentationDragIndicator(.visible)
         })
