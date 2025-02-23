@@ -11,6 +11,7 @@ struct IntroItem: Identifiable {
     var id: String = UUID().uuidString
     var image: String
     var title: String
+    var description: String
     
     var scale: CGFloat = 1
     var anchor: UnitPoint = .center
@@ -21,37 +22,42 @@ struct IntroItem: Identifiable {
 
 let inroPageItems: [IntroItem] = [
     .init(
-        image:"figure.walk.circle.fill",
-        title:"Keep an eye on your workout and your health",
+        image:"calendar.circle.fill",
+        title:"Track your daily\nhabits",
+        description: "Consist helps you to track your\ndaily habits and achieve your goals.",
         scale: 1
     ),
     .init(
-        image:"figure.run.circle.fill",
-        title:"Keep2 an eye on your workout",
+        image:"checkmark.circle.fill",
+        title:"Stay consistent with your\nworkouts",
+        description: "Form habits and stay consistent\nwith your daily workouts.",
         scale: 0.6,
         anchor: .topLeading,
         offset: -70,
         rotation: 30
     ),
     .init(
-        image:"figure.badminton.circle.fill",
-        title:"Keep3 an eye on your workout",
+        image:"star.circle.fill",
+        title:"Stay motivated with your\nprogress",
+        description: "Keep track of your progress and\nstay motivated.",
         scale: 0.5,
         anchor: .bottomLeading,
         offset: -60,
         rotation: -35
     ),
     .init(
-        image:"figure.climbing.circle.fill",
-        title:"Keep4 an eye on your workout",
+        image:"flame.circle.fill",
+        title:"Stay consistent with your\nworkouts",
+        description: "Tarck streaks and stay consistent\nwith your workouts.",
         scale: 0.4,
         anchor: .bottomLeading,
         offset: -50,
         rotation: 160
     ),
     .init(
-        image:"figure.cooldown.circle.fill",
-        title:"Keep5 an eye on your workout",
+        image:"clock.circle.fill",
+        title:"Track your daily\nhabits",
+        description: "Consist helps you to track your\ndaily habits and achieve your goals.",
         scale: 0.35,
         anchor: .bottomLeading,
         offset: -50,

@@ -12,6 +12,8 @@ struct IntroPageView: View {
     @State private var introItems: [IntroItem] = inroPageItems
     @State private var activeIndex: Int = 0
     
+    @AppStorage("isIntroCompleted") private var isIntroCompleted: Bool = false
+    
     var buttonText: String {
         return selectedItem.id == introItems.last!.id ? "Continue" : "Next"
     }
@@ -55,11 +57,15 @@ struct IntroPageView: View {
                     .font(.title.bold())
                     .contentTransition(.numericText())
                 
-                Text("Lorem Ipsum")
+                Text(selectedItem.description)
                     .font(.caption2)
                     .foregroundStyle(.gray)
+                    .contentTransition(.numericText())
                 
                 Button {
+                   if selectedItem.id == introItems.last!.id {
+                       isIntroCompleted = true
+                    }
                     updateItem(isForward: true)
                 } label: {
                     Text(buttonText)
