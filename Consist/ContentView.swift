@@ -17,10 +17,10 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.BG)
                     .preferredColorScheme(.light)
-                    .transition(.scale)
+                    .transition(.move(edge: .trailing))
             } else {
                 IntroPageView()
-                    .transition(.scale)
+                    .transition(.move(edge: .leading))
             }
         }
         .animation(.snappy(duration: 0.25,extraBounce: 0), value: isIntroCompleted)

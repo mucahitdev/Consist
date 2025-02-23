@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var currentWeekIndex = 1
     @State private var createWeek = false
     @State private var createNewTask = false
+    @State private var showSettings = false
 
     @Namespace private var animation
     var body: some View {
@@ -62,6 +63,9 @@ struct HomeView: View {
                 .presentationBackground(.BG)
                 .presentationDragIndicator(.visible)
         }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+        }
     }
     
     @ViewBuilder
@@ -88,7 +92,9 @@ struct HomeView: View {
                     
                 }
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    showSettings.toggle()
+                }, label: {
                     Image("Pic")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
