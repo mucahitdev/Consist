@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskRowView: View {
     @Bindable var task: Task
+    @Environment(\.modelContext) private var context
     var body: some View {
         HStack(alignment: .center,spacing: 8) {
             Image(systemName: task.icon)
@@ -35,6 +36,12 @@ struct TaskRowView: View {
         }
         .hSpacing(.leading)
         .background(.red)
+        .contextMenu {
+            Button("Delete Task") {
+                context.delete(task)
+                try? context.save()
+            }
+        }
 
     }
 }

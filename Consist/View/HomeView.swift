@@ -276,4 +276,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(for: Task.self, inMemory: false)
 }
