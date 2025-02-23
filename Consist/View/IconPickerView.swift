@@ -9,8 +9,8 @@ import SwiftUI
 
 struct IconPickerView: View {
     @StateObject private var viewModel = IconPickerViewModel()
-    @Binding var tint: Color
     @Binding var selectedIcon: String
+    let tint: Color
     
     @Environment(\.dismiss) var dismiss
 
@@ -92,5 +92,5 @@ struct IconPickerView: View {
 
 
 #Preview {
-    IconPickerView(tint: .constant(.taskColor1), selectedIcon: .constant("book"))
+//    IconPickerView(tint: .constant(.taskColor1), selectedIcon: .constant("book"))
 }

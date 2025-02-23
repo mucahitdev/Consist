@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct TaskRowView: View {
-    @Binding var task: Task
+    @Bindable var task: Task
     var body: some View {
         HStack(alignment: .center,spacing: 8) {
             Image(systemName: task.icon)
                 .font(.system(size: 20))
-                .foregroundStyle(task.tint)
+                .foregroundStyle(task.tintColor)
                 .padding(6)
                 .background(Color.iconBG,in: Circle())
             
@@ -30,14 +30,15 @@ struct TaskRowView: View {
                 .strikethrough(task.completed, color: .black)
                 .foregroundStyle(.black)
                 
-                
-                Checkbox(isChecked: $task.completed, tintColor: $task.tint)       
+                Checkbox(isChecked: $task.completed, tintColor: task.tintColor)
             }
         }
         .hSpacing(.leading)
+        .background(.red)
+
     }
 }
 
-#Preview {
-    TaskRowView(task: .constant(sampleTasks[1]))
-}
+//#Preview {
+////    TaskRowView(task: <#Task#>)
+//}

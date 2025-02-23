@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Checkbox: View {
     @Binding var isChecked: Bool
-    @Binding var tintColor: Color
+    let tintColor: Color
 
     var body: some View {
         Button(action: {
@@ -54,5 +54,5 @@ struct Checkbox: View {
 }
 
 #Preview {
-    Checkbox(isChecked: .constant(true), tintColor: .constant(.red))
+    Checkbox(isChecked: .constant(true), tintColor: .red )
 }

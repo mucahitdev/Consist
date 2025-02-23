@@ -6,28 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Task:Identifiable {
-    var id:UUID = .init()
+@Model
+class Task:Identifiable {
+    var id: UUID = UUID()
     var title: String
-    var creationDate: Date = .init()
+    var creationDate: Date = Date()
     var completed = false
-    var tint: Color
+    var tint: String
     var icon: String
-}
-
-var sampleTasks: [Task] = [
-    .init(title: "Create a neADAwdawdjadw adjjwajd adwa dwajdjwa djajdaw project",creationDate: .updateHour(-2), tint: .taskColor1, icon: "star.fill"),
-    .init(title: "Drink a coffee",creationDate: .updateHour(-1), tint: .taskColor2, icon: "star.fill"),
-    .init(title: "Write a blog post",creationDate: .updateHour(0),completed:true, tint: .taskColor3, icon: "star.fill"),
-    .init(title: "Go for a walk",creationDate: .updateHour(1), tint: .taskColor4, icon: "star.fill"),
-    .init(title: "Prepare a presentation",creationDate: .updateHour(2), tint: .taskColor5, icon: "star.fill"),
-]
-
-extension Date {
-    static func updateHour(_ value:Int) -> Date {
-        let calendar = Calendar.current
-        return calendar.date(byAdding: .hour,value: value, to: .init()) ?? .init()
+    
+    init(id: UUID = UUID(), title: String, creationDate: Date = .init(), completed: Bool = false, tint: String, icon: String) {
+        self.id = id
+        self.title = title
+        self.creationDate = creationDate
+        self.completed = completed
+        self.tint = tint
+        self.icon = icon
     }
-        
+    
+    var tintColor: Color {
+        switch tint {
+        case "TaskColor1": return .taskColor1
+        case "TaskColor2": return .taskColor2
+        case "TaskColor3": return .taskColor3
+        case "TaskColor4": return .taskColor4
+        case "TaskColor5": return .taskColor5
+        default: return .black
+        }
+            
+    }
 }

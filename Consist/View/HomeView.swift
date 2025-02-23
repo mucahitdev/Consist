@@ -13,9 +13,6 @@ struct HomeView: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex = 1
     @State private var createWeek = false
-    @State private var tasks: [Task] = sampleTasks.sorted(
-        by: {$1.creationDate > $0.creationDate
-        })
     @State private var createNewTask = false
 
     @Namespace private var animation
@@ -25,7 +22,7 @@ struct HomeView: View {
             
             ScrollView() {
                 VStack {
-                    TaskView()
+                    TasksView(currentDate: $currentDate)
                 }
                 .hSpacing(.center)
                 .vSpacing(.center)
@@ -56,19 +53,15 @@ struct HomeView: View {
                 if let lastDate = currentWeek.last?.date {
                     weekSlider.append(lastDate.createNextWeek())
                 }
-                    
-                    
             }
-                
         })
-        .sheet(isPresented: $createNewTask, content: {
+        .sheet(isPresented: $createNewTask) {
             NewTaskView()
                 .presentationDetents([.height(250)])
-               // .interactiveDismissDisabled()
                 .presentationCornerRadius(8)
                 .presentationBackground(.BG)
                 .presentationDragIndicator(.visible)
-        })
+        }
     }
     
     @ViewBuilder
@@ -157,9 +150,11 @@ struct HomeView: View {
                     Text("Today")
                         .font(.callout)
                         .fontWeight(.semibold)
+                        .foregroundStyle(.darkBlue)
                         
                 }
                 .disabled(currentDate.isToday)
+                .opacity(currentDate.isToday ? 0.5 : 1)
                 Spacer()
                 Button(action: {
                     withAnimation(.snappy) {
@@ -258,17 +253,7 @@ struct HomeView: View {
             }
         }
     }
-    
-    @ViewBuilder
-    func TaskView() -> some View {
-        VStack(alignment: .leading,spacing: 16) {
-            ForEach($tasks) { $task in
-                TaskRowView(task: $task)
-            }
-        }
-        .padding([.horizontal,.bottom], 16)
-    }
-    
+        
     func paginateWeek() {
         if weekSlider.indices.contains(currentWeekIndex) {
             if let firstDate = weekSlider[currentWeekIndex].first?.date, currentWeekIndex == 0 {
